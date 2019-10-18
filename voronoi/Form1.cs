@@ -92,6 +92,7 @@ namespace voronoi
 
         private void openFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            openFileDialog1.InitialDirectory = AppDomain.CurrentDomain.BaseDirectory;
             if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 pictureBox1.Load(openFileDialog1.FileName);
