@@ -4,7 +4,7 @@ triangulate
 I used this prject to create the low-poly image on codepen.
 
 https://pasteboard.co/ICAfYbd.bmp
-
+https://youtu.be/kgl6NAkThSk
 https://codepen.io/hex2bin/pen/MWgNZEo
 
 I does some simple local optimization.
