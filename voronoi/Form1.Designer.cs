@@ -1,4 +1,4 @@
-﻿namespace voronoi
+namespace voronoi
 {
   partial class Form1
   {
