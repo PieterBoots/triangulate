@@ -3,7 +3,7 @@ triangulate
 
 I used this prject to create the low-poly image on codepen.
 
-![alt text](https://pasteboard.co/ICAfYbd.bmp)
+![img](https://pasteboard.co/ICAfYbd.bmp)
 
 https://codepen.io/hex2bin/pen/MWgNZEo
 
