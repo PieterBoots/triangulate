@@ -72,7 +72,7 @@ public class Polys
         Point middle = PointsLst[cP];
         System.Collections.ArrayList run = new System.Collections.ArrayList();
         GetpolysWithPoint(cP, ref run);
-        int olderror = ErrorOfpolys(run, ref  img);
+        int olderror = ErrorOfpolys(run, ref  img,-1);
         int oldx = PointsLst[cP].X;
         int oldy = PointsLst[cP].Y;              
        
@@ -88,7 +88,7 @@ public class Polys
                 {
                     PointsLst[cP] = new Point(PointsLst[cP].X + rnd.Next(value * 2) - value, PointsLst[cP].Y + rnd.Next(value * 2) - value);
                 }
-                int newerror = ErrorOfpolys(run, ref img);
+                int newerror = ErrorOfpolys(run, ref img,olderror);
 
 
                 foreach (int index in run)
@@ -145,7 +145,7 @@ public class Polys
 
 
 
-        int olderror = ErrorOfpolys(run, ref  img);
+        int olderror = ErrorOfpolys(run, ref  img,-1);
 
 
         System.Collections.ArrayList lines = new System.Collections.ArrayList();
@@ -185,9 +185,9 @@ public class Polys
                  PointsLst[set] = new Point(nx,ny );
 
             }
-           
 
-            int newerror = ErrorOfpolys(run, ref img);
+
+            int newerror = ErrorOfpolys(run, ref img, olderror);
 
             Boolean repair = false;
             foreach (int index in run)
@@ -293,13 +293,14 @@ public class Polys
     
     //-----------------------
 
-    public int ErrorOfpolys(System.Collections.ArrayList lst, ref byte[] img)
+    public int ErrorOfpolys(System.Collections.ArrayList lst, ref byte[] img,double prevmin)
     {
-        int error = 0;       
+        int error = 0;
         foreach (int idx in lst)
         {
-            Poly t = Items[idx];          
-            error = error + t.Dopoly(this, PointsLst, false);
+            Poly t = Items[idx];
+            if ((error <= prevmin) || (prevmin == -1))
+                error = error + t.Dopoly(this, PointsLst, false);
         }
         return error;
     }

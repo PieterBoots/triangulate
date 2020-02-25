@@ -42,10 +42,6 @@ namespace voronoi
             this.buPlus = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
-            this.buMinusMargin = new System.Windows.Forms.ToolStripLabel();
-            this.buPlusMargin = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripLabel6 = new System.Windows.Forms.ToolStripLabel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.mniOpen = new System.Windows.Forms.ToolStripMenuItem();
@@ -91,11 +87,7 @@ namespace voronoi
             this.buMinus,
             this.buPlus,
             this.toolStripLabel3,
-            this.toolStripSeparator2,
-            this.toolStripLabel2,
-            this.buMinusMargin,
-            this.buPlusMargin,
-            this.toolStripLabel6});
+            this.toolStripSeparator2});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(805, 25);
@@ -157,32 +149,6 @@ namespace voronoi
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripLabel2
-            // 
-            this.toolStripLabel2.Name = "toolStripLabel2";
-            this.toolStripLabel2.Size = new System.Drawing.Size(73, 22);
-            this.toolStripLabel2.Text = "Error margin";
-            // 
-            // buMinusMargin
-            // 
-            this.buMinusMargin.Name = "buMinusMargin";
-            this.buMinusMargin.Size = new System.Drawing.Size(12, 22);
-            this.buMinusMargin.Text = "-";
-            this.buMinusMargin.Click += new System.EventHandler(this.buMinusMargin_Click);
-            // 
-            // buPlusMargin
-            // 
-            this.buPlusMargin.Name = "buPlusMargin";
-            this.buPlusMargin.Size = new System.Drawing.Size(15, 22);
-            this.buPlusMargin.Text = "+";
-            this.buPlusMargin.Click += new System.EventHandler(this.buPlusMargin_Click);
-            // 
-            // toolStripLabel6
-            // 
-            this.toolStripLabel6.Name = "toolStripLabel6";
-            this.toolStripLabel6.Size = new System.Drawing.Size(13, 22);
-            this.toolStripLabel6.Text = "0";
             // 
             // menuStrip1
             // 
@@ -261,10 +227,6 @@ namespace voronoi
     private System.Windows.Forms.ToolStripLabel toolStripLabel1;
     private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-    private System.Windows.Forms.ToolStripLabel toolStripLabel2;
-    private System.Windows.Forms.ToolStripLabel buMinusMargin;
-    private System.Windows.Forms.ToolStripLabel buPlusMargin;
-    private System.Windows.Forms.ToolStripLabel toolStripLabel6;
   }
 }
 

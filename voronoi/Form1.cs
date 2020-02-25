@@ -261,24 +261,6 @@ namespace voronoi
 
         //-----------------------
 
-        private void buMinusMargin_Click(object sender, EventArgs e)
-        {
-            margin = margin - 1;
-            if (margin < 0) { margin = 0; }
-            toolStripLabel6.Text = margin.ToString();
-        }
-
-        //-----------------------
-
-        private void buPlusMargin_Click(object sender, EventArgs e)
-        {
-            margin = margin +1;
-            if (margin > 299) { margin = 299; }
-            toolStripLabel6.Text = margin.ToString();
-        }
-
-        //-----------------------
-
       
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
