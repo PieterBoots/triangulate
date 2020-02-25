@@ -1,0 +1,9 @@
+C:\Users\admin\Documents\Visual Studio 2012\GitHub\triangulate\voronoi\bin\Debug\voronoi.exe.config
+C:\Users\admin\Documents\Visual Studio 2012\GitHub\triangulate\voronoi\bin\Debug\voronoi.exe
+C:\Users\admin\Documents\Visual Studio 2012\GitHub\triangulate\voronoi\bin\Debug\voronoi.pdb
+C:\Users\admin\Documents\Visual Studio 2012\GitHub\triangulate\voronoi\obj\Debug\triangulate.csprojResolveAssemblyReference.cache
+C:\Users\admin\Documents\Visual Studio 2012\GitHub\triangulate\voronoi\obj\Debug\voronoi.Form1.resources
+C:\Users\admin\Documents\Visual Studio 2012\GitHub\triangulate\voronoi\obj\Debug\voronoi.Properties.Resources.resources
+C:\Users\admin\Documents\Visual Studio 2012\GitHub\triangulate\voronoi\obj\Debug\triangulate.csproj.GenerateResource.Cache
+C:\Users\admin\Documents\Visual Studio 2012\GitHub\triangulate\voronoi\obj\Debug\voronoi.exe
+C:\Users\admin\Documents\Visual Studio 2012\GitHub\triangulate\voronoi\obj\Debug\voronoi.pdb
