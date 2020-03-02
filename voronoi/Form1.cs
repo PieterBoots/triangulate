@@ -275,9 +275,8 @@ namespace voronoi
                     int xCoordinate = e.X;
                     int yCoordinate = e.Y;
                     if (Math.Sqrt((xCoordinate - rx) * (xCoordinate - rx) + (yCoordinate - ry) * (yCoordinate - ry)) < 30)
-                    {
                         Polys1.improve(rx, ry, ref binImg, pos, margin);
-                    }
+                    
                 }
                 refreshtriagles(false);
                 pictureBox1.Refresh();

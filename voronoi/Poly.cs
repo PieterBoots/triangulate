@@ -72,10 +72,8 @@ public class Poly
                     }
                     if (value > apolys.maxBuffer[ymin + i])
                     {
-                        if (value > apolys.Width-1)
-                        {
-                            value = apolys.Width-1;
-                        }
+                        if (value > apolys.Width-1)                        
+                            value = apolys.Width-1;                        
                         apolys.maxBuffer[ymin + i] = value;
                     }
                 }
@@ -159,22 +157,31 @@ public class Poly
         for (int i = ymin; i <= ymax; i++)
         {
             int pos = apolys.minBuffer[i] * 3 + i * apolys.Width * 3;
-            for (int j = apolys.minBuffer[i]; j <= apolys.maxBuffer[i]; j++)
+            byte[] bb = apolys.src;
+            if (draw == true)
             {
-                if (draw == true)
+                int mmin = apolys.minBuffer[i];
+                int mmax = apolys.maxBuffer[i];
+                for (int j = mmin; j <= mmax; j++)
                 {
                     img[pos] = b;
                     img[pos + 1] = g;
                     img[pos + 2] = r;
+                    pos = pos + 3;
                 }
-                else
+            }
+            else
+            {
+                int mmin = apolys.minBuffer[i];
+                int mmax = apolys.maxBuffer[i];
+                for (int j = mmin; j <= mmax; j++)
                 {
-                    srcr = apolys.src[pos] - r;
-                    srcg = apolys.src[pos + 1] - g;
-                    srcb = apolys.src[pos + 2] - b;             
+                    srcr = bb[pos] - r;
+                    srcg = bb[pos + 1] - g;
+                    srcb = bb[pos + 2] - b;
                     errf = errf + (srcr * srcr + srcg * srcg + srcb * srcb);
+                    pos = pos + 3;
                 }
-                pos = pos + 3;
             }
         }
         return (int)errf;

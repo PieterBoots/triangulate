@@ -29,7 +29,6 @@ public class Polys
         Height = bmp.Height;
         src = new byte[Width * 3 * Height];
         for (int y = 0; y < Height; y++)
-        {
             for (int x = 0; x < Width; x++)
             {
                 Color c = bmp.GetPixel(x, y);
@@ -37,7 +36,6 @@ public class Polys
                 src[x * 3 + 1 + y * Width * 3] = c.G;
                 src[x * 3 + 2 + y * Width * 3] = c.B;
             }
-        }
     }
 
     //-----------------------
@@ -85,37 +83,29 @@ public class Polys
             for (int t = 0; t < 5; t++)
             {
                 if (cP > 4)
-                {
                     PointsLst[cP] = new Point(PointsLst[cP].X + rnd.Next(value * 2) - value, PointsLst[cP].Y + rnd.Next(value * 2) - value);
-                }
-                int newerror = ErrorOfpolys(run, ref img,olderror);
 
-
+                int newerror = ErrorOfpolys(run, ref img, olderror);
                 foreach (int index in run)
                 {
                     Poly pol = Items[index];
                     if (pol.IsCounterClockwise)
-                    {
                         PointsLst[cP] = new Point(oldx, oldy);
-                    }       
                 }
 
-                if 
-                   (newerror < olderror*(1+margin/1000.0)) 
-                        // (newerror < olderror) 
+                if
+                   (newerror < olderror * (1 + margin / 1000.0))
                 {
                     olderror = newerror;
                     oldx = PointsLst[cP].X;
                     oldy = PointsLst[cP].Y;
                 }
                 else
-                {
                     PointsLst[cP] = new Point(oldx, oldy);
-                }
+
             }
             sw.Stop();
             long microseconds = sw.ElapsedTicks / (Stopwatch.Frequency / (1000L * 1000L));
-      //      MessageBox.Show("Operation completed in: " + microseconds + " (us)");
         }
     }
 
@@ -156,34 +146,29 @@ public class Polys
         sw.Start();
         int pc = 0;
         int set = 0;
-        
+
         for (int t = 0; t < 5; t++)
         {
-            for (int ll = 0; ll < rnd.Next(4);ll++ )
+            for (int ll = 0; ll < rnd.Next(4); ll++)
             {
                 pc = rnd.Next(pnts.Count - 1);
                 set = (int)pnts[pc];
-               
+
                 int nx = PointsLst[set].X + rnd.Next(value * 2) - value;
                 int ny = PointsLst[set].Y + rnd.Next(value * 2) - value;
                 if (nx < 0)
-                {
-                    nx= 0;
-                }
-                if (ny < 0)
-                {
-                    ny = 0;
-                }
-                if (nx >1024)
-                {
-                    nx = 1024;
-                }
-                if (ny >768)
-                {
-                    ny = 768;
-                }
-                 PointsLst[set] = new Point(nx,ny );
+                    nx = 0;
 
+                if (ny < 0)
+                    ny = 0;
+
+                if (nx > 1024)
+                    nx = 1024;
+
+                if (ny > 768)
+                    ny = 768;
+
+                PointsLst[set] = new Point(nx, ny);
             }
 
 
@@ -194,14 +179,11 @@ public class Polys
             {
                 Poly pol = Items[index];
                 if (pol.IsCounterClockwise)
-                {
                     repair = true;
-                }
             }
-     
 
             if
-               ((newerror < olderror * (1 + margin / 1000.0)) && (repair == false))         
+               ((newerror < olderror * (1 + margin / 1000.0)) && (repair == false))
             {
                 olderror = newerror;
                 for (int j = 0; j < pnts.Count; j++)
@@ -211,12 +193,8 @@ public class Polys
                 }
             }
             else
-            {
                 for (int j = 0; j < pnts.Count; j++)
-                {
                     PointsLst[(int)pnts[j]] = new Point(oldx[j], oldy[j]);
-                }
-            }
         }
         sw.Stop();
         long microseconds = sw.ElapsedTicks / (Stopwatch.Frequency / (1000L * 1000L));
@@ -231,17 +209,15 @@ public class Polys
         foreach (int idx in apolys)
         {
             Poly pol = Items[idx];
-            if (!(run.Contains(pol.p1))){
+            if (!(run.Contains(pol.p1)))
                 run.Add(pol.p1);
-            }
+
             if (!(run.Contains(pol.p2)))
-            {
                 run.Add(pol.p2);
-            }
+
             if (!(run.Contains(pol.p3)))
-            {
                 run.Add(pol.p3);
-            }
+
         }
     }
 
@@ -250,17 +226,13 @@ public class Polys
     public void GetpolysWithPoint(int midlepick, ref System.Collections.ArrayList run)
     {
         for (int i = 0; i < Items.Count; i++)
-        {
             if (Items[i].p1 == midlepick || Items[i].p2 == midlepick || Items[i].p3 == midlepick)
-            {
                 if (!run.Contains(i))
                 {
                     Items[i].active = true;
                     run.Add(i);
                 }
-            }
-        }
-    }   
+    }
 
     //-----------------------
 
@@ -283,10 +255,8 @@ public class Polys
         for (int i = 0; i < Items.Count; i++)
         {
             Poly poly1 = Items[i];
-            if (poly1.active == true)
-            {
-                poly1.Dopoly(this, PointsLst, true, img);             
-            }
+            if (poly1.active == true)            
+                poly1.Dopoly(this, PointsLst, true, img);                         
             poly1.active = false;
         }       
     }
@@ -316,10 +286,8 @@ public class Polys
      
 
         System.Text.StringBuilder bld = new StringBuilder();
-        for (int y = 0; y <= 768 / n; y++)
-        {
-            for (int x = 0; x <= Width / n; x++)
-            {
+        for (int y = 0; y <= 768 / n; y++)        
+            for (int x = 0; x <= Width / n; x++)            
                 if (!PointsLst.Contains(new Point(x * n, y * n)))
                 {
                     yy = y * n;
@@ -328,25 +296,23 @@ public class Polys
                     if (xx == Width) { xx = Width-1; }
                     PointsLst.Add(new Point(xx, yy));
                     PointsLst_cpy.Add(new Point(xx, yy));
-
                 }
-            }
-        }
+            
+        
         for (int y = 0; y < Height / n; y++)
-        {
             for (int x = 0; x < Width / n; x++)
             {
                 int i1 = PointsLst.IndexOf(new Point(x * n, y * n));
                 xx = (x + 1) * n;
-                if (xx == Width) { xx = Width-1; }
+                if (xx == Width) { xx = Width - 1; }
                 int i2 = PointsLst.IndexOf(new Point(xx, y * n));
                 yy = (y + 1) * n;
-                if (yy == Height) { yy = Height-1; }
+                if (yy == Height) { yy = Height - 1; }
                 int i3 = PointsLst.IndexOf(new Point(x * n, yy));
                 yy = (y + 1) * n;
                 xx = (x + 1) * n;
-                if (yy == Height) { yy = Height-1; }
-                if (xx == Width) { xx = Width-1; }
+                if (yy == Height) { yy = Height - 1; }
+                if (xx == Width) { xx = Width - 1; }
                 int i4 = PointsLst.IndexOf(new Point(xx, yy));
                 Poly d1 = new Poly(i2, i3, i1, PointsLst);
                 Poly d2 = new Poly(i2, i3, i4, PointsLst);
@@ -359,7 +325,6 @@ public class Polys
                 int err3 = d3.Dopoly(this, PointsLst, false);
                 int err4 = d4.Dopoly(this, PointsLst, false);
 
-
                 if (err1 + err2 > err3 + err4)
                 {
                     Items.Add(d3);
@@ -371,7 +336,6 @@ public class Polys
                     Items.Add(d2);
                 }
             }
-        }
     }
 
     //-----------------------

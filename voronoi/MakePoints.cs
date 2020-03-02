@@ -26,15 +26,9 @@ namespace voronoi
             Height = bmp.Height;
             src = new Color[Width , Height];
             points = new Byte[Width, Height];
-            for (int y = 0; y < Height; y++)
-            {
-                for (int x = 0; x < Width; x++)
-                {
-                    src[x, y] = bmp.GetPixel(x, y);
-                }
-            }
-
-       
+            for (int y = 0; y < Height; y++)            
+                for (int x = 0; x < Width; x++)                
+                    src[x, y] = bmp.GetPixel(x, y);                                   
         }
 
         //-----------------------
@@ -43,30 +37,22 @@ namespace voronoi
         {
             int n = 64;
             for (int y = 0; y < Height / n; y++)
-            {
                 for (int x = 0; x < Width / n; x++)
-                {
-                    dobox(x*n,y*n,n,0);      
-                }
-            }
+                    dobox(x * n, y * n, n, 0);
 
-             n = 32;
+            n = 32;
             for (int y = 0; y < Height / n; y++)
-            {
                 for (int x = 0; x < Width / n; x++)
-                {
                     dobox(x * n, y * n, n, 50);
-                }
-            }
+
+
 
             n = 16;
             for (int y = 0; y < Height / n; y++)
-            {
                 for (int x = 0; x < Width / n; x++)
-                {
                     dobox(x * n, y * n, n, 50);
-                }
-            }
+
+
 
             //n = 8;
             //for (int y = 0; y < Height / n; y++)
@@ -77,25 +63,20 @@ namespace voronoi
             //    }
             //}
 
-        //    n = 4;
-         //   for (int y = 0; y < Height / n; y++)
-           // {
-             //   for (int x = 0; x < Width / n; x++)
-               // {
-                 //   dobox(x * n, y * n, n, 60);
-              //  }
-           // }
-                    
+            //    n = 4;
+            //   for (int y = 0; y < Height / n; y++)
+            // {
+            //   for (int x = 0; x < Width / n; x++)
+            // {
+            //   dobox(x * n, y * n, n, 60);
+            //  }
+            // }
+
             for (int y = 0; y < Height; y++)
-            {
                 for (int x = 0; x < Width; x++)
-                {
                     if (points[x, y] == 1)
-                    {
                         PointsLst.Add(new Point(x, y));
-                    }
-                }
-            }
+
         }
 
         //-----------------------
@@ -104,50 +85,37 @@ namespace voronoi
         {
             double tot = 0;
             int cnt = 0;
-            for (int yy = 0; yy < n; yy++)
-            {
+            for (int yy = 0; yy < n; yy++)            
                 for (int xx = 0; xx < n; xx++)
                 {
                     double gray = src[(x + xx), (y + yy)].GetBrightness() * 256;
                     tot = tot + gray;
                     cnt = cnt + 1;
                 }
-            }
+            
             tot = tot / cnt;
 
             double max = 0;
-            for (int yy = 0; yy < n; yy++)
-            {
+            for (int yy = 0; yy < n; yy++)            
                 for (int xx = 0; xx < n; xx++)
                 {
                     double gray = src[(x + xx), (y + yy)].GetBrightness()*256;
                     double delta = Math.Abs(gray  - tot);
-                    if (delta>max)
-                    {
-                        max = delta;
-                    }
+                    if (delta>max)                    
+                        max = delta;                    
                 }
-            }
-
 
             if (max > amax)
             {
                 points[x, y] = 1;
-                int xt=x + n;
-                if (xt>Width - 2){xt=Width - 2;}
+                int xt = x + n;
+                if (xt > Width - 2) { xt = Width - 2; }
                 int yt = y + n;
                 if (yt > Height - 2) { yt = Height - 2; }
-
-              
-                  points[x, yt] = 1;
-                
-              
-                   points[xt, y] = 1;
-               
-              
-                   points[xt, yt] = 1;
-                
-            }                      
+                points[x, yt] = 1;
+                points[xt, y] = 1;
+                points[xt, yt] = 1;
+            }                     
         }
     }
 }
