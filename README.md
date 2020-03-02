@@ -1,7 +1,7 @@
 # triangulate
 triangulate
 
-I used this prject to create the low-poly image on codepen.
+I used this project to create the low-poly image on codepen.
 
 https://pasteboard.co/ICAfYbd.bmp
 
