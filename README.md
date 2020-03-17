@@ -7,7 +7,7 @@ https://pasteboard.co/ICAfYbd.bmp
 
 https://youtu.be/kgl6NAkThSk
 
-https://codepen.io/hex2bin/pen/MWgNZEo
+https://codepen.io/hex2bin/full/ExjEPvK
 
 I does some simple local optimization.
 
